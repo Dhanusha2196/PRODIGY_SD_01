@@ -1,3 +1,4 @@
+#Python Code
 import random as rn
 number = rn.randint(0, 100)
 count = 0
