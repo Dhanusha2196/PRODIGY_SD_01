@@ -1,7 +1,6 @@
+#Python Code
 import json
-
 contacts = {}
-
 def load_contacts():
     global contacts
     try:
@@ -9,25 +8,21 @@ def load_contacts():
             contacts = json.load(f)
     except FileNotFoundError:
         contacts = {}
-
 def save_contacts():
     with open("contacts.json", "w") as f:
         json.dump(contacts, f, indent=4)
-
 def add_contact():
     name = input("Enter name: ")
     phone = input("Enter phone number: ")
     email = input("Enter email: ")
     contacts[name] = {"phone": phone, "email": email}
     print("Contact added.")
-
 def view_contacts():
     if not contacts:
         print("No contacts to show.")
     else:
         for name, info in contacts.items():
             print(f"Name: {name}, Phone: {info['phone']}, Email: {info['email']}")
-
 def edit_contact():
     name = input("Enter name of contact to edit: ")
     if name in contacts:
@@ -37,7 +32,6 @@ def edit_contact():
         print("Contact updated.")
     else:
         print("Contact not found.")
-
 def delete_contact():
     name = input("Enter name of contact to delete: ")
     if name in contacts:
@@ -56,7 +50,6 @@ while True:
     print("4. Delete Contact")
     print("5. Save & Exit")
     choice = input("Choose an option: ")
-
     if choice == '1':
         add_contact()
     elif choice == '2':
@@ -71,4 +64,3 @@ while True:
         break
     else:
         print("Invalid choice. Try again.")
-
