@@ -1,7 +1,7 @@
+#Python Code
 def print_grid(grid):
     for row in grid:
         print(row)
-
 def is_valid(grid, row, col, num):
     if num in grid[row]:
         return False
@@ -14,7 +14,6 @@ def is_valid(grid, row, col, num):
             if grid[start_row + i][start_col + j] == num:
                 return False
     return True
-
 def solve_sudoku(grid):
     for row in range(9):
         for col in range(9):
@@ -27,15 +26,12 @@ def solve_sudoku(grid):
                         grid[row][col] = 0
                 return False
     return True
-
 sudoku_grid = []
 for i in range(9):
     row = list(map(int, input(f"Enter the {i+1} row (9 numbers separated by space, use 0 for empty): ").split()))
     sudoku_grid.append(row)
-
 if solve_sudoku(sudoku_grid):
     print("Solved Sudoku Grid:")
     print_grid(sudoku_grid)
 else:
     print("No solution exists.")
-
